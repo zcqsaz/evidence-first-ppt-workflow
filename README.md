@@ -1,6 +1,9 @@
 # Evidence-First PPT Workflow
 
 一套面向课程、科研项目汇报、答辩和论文分享的开源演示文稿生产工作流。
+<img width="1327" height="634" alt="image" src="https://github.com/user-attachments/assets/af73b056-6930-4581-92c5-299aa5f82cf6" />
+<img width="1205" height="542" alt="image" src="https://github.com/user-attachments/assets/7406a5c9-fec8-420b-b12e-a7251d237cdc" />
+<img width="1248" height="547" alt="image" src="https://github.com/user-attachments/assets/28cc7807-5646-486c-bdfe-f6727d7b9222" />
 
 它解决的不是“怎样快速生成很多页”，而是怎样持续产出以下类型的可交付文件：
 
