@@ -10,7 +10,7 @@ from typing import Any, Iterable
 
 from jsonschema import Draft202012Validator
 
-TOOL_VERSION = "1.0.1"
+TOOL_VERSION = "1.0.2"
 REPO_ROOT = Path(__file__).resolve().parents[1]
 SHARE_ROOT = Path(sys.prefix) / "share" / "evidence-first-ppt-workflow"
 

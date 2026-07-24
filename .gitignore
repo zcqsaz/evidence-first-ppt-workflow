@@ -17,6 +17,12 @@ dist/
 .DS_Store
 Thumbs.db
 
+# Local-only review artefacts for the public five-slide demo. The generated
+# PPTX itself is intentionally versioned as a reusable, privacy-safe example.
+examples/five_slide_academic_demo/local_renders/
+examples/five_slide_academic_demo/local_contact_sheet.jpg
+examples/five_slide_academic_demo/pptx_validation.json
+
 # Real project inputs and generated deliveries are private by default.
 projects/*/00_input/original/
 projects/*/00_input/supplementary/

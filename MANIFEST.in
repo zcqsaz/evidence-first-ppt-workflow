@@ -3,4 +3,10 @@ recursive-include schemas *.json
 recursive-include templates *
 recursive-include docs *.md
 recursive-include examples *.md
+include examples/five_slide_academic_demo/build_demo.py
+include examples/five_slide_academic_demo/demo_config.json
+include examples/five_slide_academic_demo/five_slide_academic_demo.pptx
+exclude examples/five_slide_academic_demo/pptx_validation.json
+exclude examples/five_slide_academic_demo/local_contact_sheet.jpg
+prune examples/five_slide_academic_demo/local_renders
 recursive-include tests *.py

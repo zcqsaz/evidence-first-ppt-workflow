@@ -122,6 +122,20 @@ efppt-contact-sheet \
 
 v1.0.1的自动测试、隔离安装、61页真实课程PPT集成测试及DOI解析器测试结果见 [docs/VALIDATION.md](docs/VALIDATION.md)。验证记录只公开指标，不再分发用户PPT、模板或第三方论文图。
 
+### 7. 查看可公开复用的五页示例
+
+仓库包含一个从空白16:9画布构建的可编辑示例：[examples/five_slide_academic_demo](examples/five_slide_academic_demo)。它通过五页展示封面、目录高亮、页面规格、素材审计和交付QA；只使用本仓库原创文字及原生PowerPoint对象，不含机构模板、Logo、个人信息、真实项目材料或第三方科研图片。
+
+```bash
+python examples/five_slide_academic_demo/build_demo.py
+
+efppt-validate-pptx \
+  examples/five_slide_academic_demo/five_slide_academic_demo.pptx \
+  --config examples/five_slide_academic_demo/demo_config.json
+```
+
+该示例的本地渲染图和检查报告默认被Git忽略，避免把本机绝对路径或临时审阅产物带入公开仓库。
+
 ## 阶段概览
 
 | 阶段 | 核心问题 | 强制产物 | 通过条件 |

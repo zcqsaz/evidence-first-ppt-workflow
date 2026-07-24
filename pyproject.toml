@@ -1,6 +1,6 @@
 [project]
 name = "evidence-first-ppt-workflow"
-version = "1.0.1"
+version = "1.0.2"
 description = "Evidence-first, reproducible workflow and QA tools for academic PowerPoint presentations"
 readme = "README.md"
 requires-python = ">=3.10"

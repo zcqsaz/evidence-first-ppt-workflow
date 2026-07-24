@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.0.2 - 2026-07-24
+
+- Added a five-slide, editable academic-PPT example built from a blank 16:9
+  canvas: cover, agenda highlight, page specification, asset audit, and QA.
+- The committed example contains only original workflow content and native
+  PowerPoint objects; it contains no institutional template, logo, personal
+  information, real project material, or third-party research figure.
+- Added a regression test and local-artifact exclusions for the example.
+
 ## 1.0.1 - 2026-07-24
 
 - Added a compliant publisher-access standard covering Elsevier/ScienceDirect,
