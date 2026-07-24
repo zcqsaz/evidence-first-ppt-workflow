@@ -2,6 +2,18 @@
 
 本文件记录工作流本身的验证，不发布任何用户PPT、机构模板、论文原图或本机路径。
 
+## v1.0.1：期刊访问与DOI解析补充验证
+
+验证日期：2026-07-24。
+
+```text
+pytest: 9 passed
+Python syntax compilation: passed
+DOI resolver CLI help: passed
+```
+
+新增单元测试以模拟Crossref、OpenAlex与Unpaywall返回，确认解析器能够输出出版商落地页与开放候选地址，同时不下载论文、不登录出版社、不处理访问控制。对真实出版商页面、许可证、版本和图号的核验仍由人工正常浏览与访问日志完成。
+
 ## 1. 自动化回归测试
 
 验证日期：2026-07-23。

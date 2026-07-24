@@ -1,6 +1,6 @@
 [project]
 name = "evidence-first-ppt-workflow"
-version = "1.0.0"
+version = "1.0.1"
 description = "Evidence-first, reproducible workflow and QA tools for academic PowerPoint presentations"
 readme = "README.md"
 requires-python = ">=3.10"
@@ -30,6 +30,7 @@ efppt-validate-sources = "scripts.validate_sources:main"
 efppt-render-formula = "scripts.render_formula:main"
 efppt-contact-sheet = "scripts.make_contact_sheet:main"
 efppt-compare-files = "scripts.compare_files:main"
+efppt-resolve-paper = "scripts.resolve_paper:main"
 
 [project.optional-dependencies]
 dev = ["pytest>=8.0.0"]

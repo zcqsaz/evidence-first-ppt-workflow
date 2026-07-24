@@ -71,7 +71,17 @@ cd projects/2026-001-example
 
 ### 4. 按阶段执行
 
-完整流程见 [docs/WORKFLOW.md](docs/WORKFLOW.md)。科研素材规则见 [docs/standards/REAL_ASSETS.md](docs/standards/REAL_ASSETS.md)。
+完整流程见 [docs/WORKFLOW.md](docs/WORKFLOW.md)。科研素材规则见 [docs/standards/REAL_ASSETS.md](docs/standards/REAL_ASSETS.md)，期刊、Elsevier等大型出版商的合规访问与全文/原图获取路径见 [docs/standards/PUBLISHER_ACCESS.md](docs/standards/PUBLISHER_ACCESS.md)。
+
+### 4.1 解析DOI与合法开放版本
+
+```bash
+efppt-resolve-paper "10.1016/j.rse.2024.114000" \
+  --email "your-research-email@example.edu" \
+  --output 04_real_assets/paper_resolution.json
+```
+
+该命令只查询Crossref、OpenAlex与Unpaywall，提供出版社落地页和合法开放版本候选；它不会下载付费论文、绕过登录、处理验证码或规避访问控制。
 
 ### 5. 验收PPTX
 
@@ -110,7 +120,7 @@ efppt-contact-sheet \
 
 自动化工具的检查项、退出码和能力边界见 [docs/TOOLING.md](docs/TOOLING.md)。特别注意：`crop=0`只能证明PowerPoint没有再次裁剪，不能代替对原始图片全部面板、坐标轴、图例和正文碎片的人工检查。
 
-v1.0.0的自动测试、隔离安装和61页真实课程PPT集成测试结果见 [docs/VALIDATION.md](docs/VALIDATION.md)。验证记录只公开指标，不再分发用户PPT、模板或第三方论文图。
+v1.0.1的自动测试、隔离安装、61页真实课程PPT集成测试及DOI解析器测试结果见 [docs/VALIDATION.md](docs/VALIDATION.md)。验证记录只公开指标，不再分发用户PPT、模板或第三方论文图。
 
 ## 阶段概览
 

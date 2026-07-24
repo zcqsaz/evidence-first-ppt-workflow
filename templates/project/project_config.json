@@ -1,7 +1,7 @@
 {
   "$schema": "../../schemas/project_config.schema.json",
   "schema_version": "1.0.0",
-  "workflow_version": "1.0.0",
+  "workflow_version": "1.0.1",
   "project": {
     "id": "YYYY-NNN-short-name",
     "name": "",

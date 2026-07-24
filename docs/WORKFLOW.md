@@ -246,17 +246,18 @@ projects/YYYY-NNN-short-name/
 
 ## 9. 阶段4：真实素材检索与审计
 
-详细规则见 [standards/REAL_ASSETS.md](standards/REAL_ASSETS.md)。
+详细规则见 [standards/REAL_ASSETS.md](standards/REAL_ASSETS.md) 与 [standards/PUBLISHER_ACCESS.md](standards/PUBLISHER_ACCESS.md)。
 
 ### 9.1 必须执行
 
 1. 先锁定项目/方法正式名称、核心论文、官方页面和产品文档；
 2. 优先下载出版商原始单图、官方原图或矢量文件；
 3. 逐图核验归属、变量、时间、区域、单位、产品性质和图号；
-4. 建立一图一记录的 `source_metadata.csv`；
-5. 生成素材总览，人工查看是否完整；
-6. 建立交付脚本素材白名单；
-7. 失败时记录搜索词、页面、错误和替代方案。
+4. 对期刊来源建立论文级 `access_log.csv`，记录DOI、出版社、访问路由、访问依据、版本、许可证/条款和失败状态；
+5. 建立一图一记录的 `source_metadata.csv`；
+6. 生成素材总览，人工查看是否完整；
+7. 建立交付脚本素材白名单；
+8. 失败时记录搜索词、页面、错误和替代方案。
 
 ### 9.2 通过门禁
 
@@ -265,6 +266,7 @@ projects/YYYY-NNN-short-name/
 - 图中无正文碎片、残缺图注、页眉页脚；
 - 原图质量满足最终放映尺寸；
 - 无法核验的图不进入正式PPT。
+- 订阅、OA、作者仓储或许可等访问依据已记录；不得绕过出版社访问控制或公开再分发受限二进制文件。
 
 ## 10. 阶段5：视觉系统与模板映射
 
@@ -456,4 +458,3 @@ projects/YYYY-NNN-short-name/
 - 全量渲染人工复核通过；
 - 正式文件与交付副本哈希一致；
 - 交付说明和已知限制完整。
-

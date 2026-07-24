@@ -1,2 +1,1 @@
-asset_id,filename,case_name,ppt_page,figure_title,source_type,source_organization,source_title,publication_year,figure_number,page_number,doi,source_url,download_url,variable,time_coverage,spatial_extent,unit,product_nature,license_or_usage_note,verification_status,file_sha256,notes
-
+asset_id,filename,case_name,ppt_page,figure_title,source_type,source_organization,source_title,publication_year,figure_number,page_number,doi,source_url,download_url,access_method,access_basis,access_date_utc,retrieval_route,rights_status,variable,time_coverage,spatial_extent,unit,product_nature,license_or_usage_note,verification_status,file_sha256,notes

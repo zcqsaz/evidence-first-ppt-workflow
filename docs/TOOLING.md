@@ -80,7 +80,19 @@ efppt-validate-sources 04_real_assets/source_metadata.csv \
 
 出版社反爬、机构网络限制或临时故障会产生`URL_UNREACHABLE`。默认记为警告并在报告中保留状态、错误和涉及行；使用`--strict-network`可将其升级为错误。不得把“网页当前能访问”解释为“图片事实已核验”。
 
-## 4. PowerPoint真实渲染
+## 4. DOI、出版商页面与开放版本解析
+
+```bash
+efppt-resolve-paper "10.1016/j.rse.2024.114000" \
+  --email "your-research-email@example.edu" \
+  --output 04_real_assets/paper_resolution.json
+```
+
+该工具仅查询Crossref、OpenAlex以及（提供邮箱时）Unpaywall，输出文章落地页、版本和合法开放位置候选。它不下载全文、不访问校园网、不保存Cookie/API密钥、不登录Elsevier或其他出版社，也不尝试处理付费墙、验证码和反爬机制。
+
+候选地址必须在正常浏览器中按 [PUBLISHER_ACCESS.md](standards/PUBLISHER_ACCESS.md) 再次核验题名、版本、图号、许可和访问权。需要订阅的文章，应通过用户所在机构图书馆、VPN、EZproxy、SSO或出版社/作者许可获取。
+
+## 5. PowerPoint真实渲染
 
 Windows且安装Microsoft PowerPoint时：
 
@@ -100,7 +112,7 @@ powershell -ExecutionPolicy Bypass -File scripts/render_with_powerpoint.ps1 `
 efppt-contact-sheet 07_qa/renders_final 07_qa/contact_sheet.jpg
 ```
 
-## 5. 公式渲染
+## 6. 公式渲染
 
 ```bash
 efppt-render-formula \
@@ -112,7 +124,7 @@ efppt-render-formula \
 
 该脚本使用Matplotlib mathtext，适合常见分式、上下标、求和和希腊字母。复杂宏包、矩阵环境或必须使用完整TeX排版的公式，应改用受控LaTeX引擎，并保留`.tex`源文件。公式图必须等比显示且不得被PowerPoint裁剪。
 
-## 6. 交付副本一致性
+## 7. 交付副本一致性
 
 ```bash
 efppt-compare-files approved/final.pptx delivery/final.pptx \
@@ -121,7 +133,7 @@ efppt-compare-files approved/final.pptx delivery/final.pptx \
 
 只有`identical: true`才证明批准文件与交付副本逐字节一致。复制之后不得继续编辑交付副本。
 
-## 7. 配置与报告Schema
+## 8. 配置与报告Schema
 
 - `schemas/project_config.schema.json`：项目范围与QA阈值；
 - `schemas/source_metadata.schema.json`：每一行素材元数据；

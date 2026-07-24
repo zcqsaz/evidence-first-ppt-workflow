@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.0.1 - 2026-07-24
+
+- Added a compliant publisher-access standard covering Elsevier/ScienceDirect,
+  Springer Nature, Wiley, Taylor & Francis, SAGE, IEEE/ACM and open platforms.
+- Added DOI metadata and lawful open-access candidate resolver using Crossref,
+  OpenAlex and optional Unpaywall discovery; it never downloads or bypasses
+  restricted content.
+- Added paper-level access logging and access/rights metadata fields for assets.
+
 ## 1.0.0 - 2026-07-23
 
 - Initial open-source release.

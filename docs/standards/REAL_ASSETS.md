@@ -15,6 +15,7 @@
 ├── publisher_originals/
 ├── official_originals/
 ├── references/
+├── access_log.csv
 ├── source_metadata.csv
 ├── retrieval_report.md
 ├── usage_notes.md
@@ -135,6 +136,8 @@ DOI/期刊页
 
 禁止回退到搜索引擎缩略图或二次转载。
 
+Elsevier、Springer Nature、Wiley、Taylor & Francis、IEEE等平台的正常访问路由、机构订阅、OA版本、出版社API和403/429/CAPTCHA处置见 [PUBLISHER_ACCESS.md](PUBLISHER_ACCESS.md)。该规范只允许合法访问，不包含绕过付费墙或反爬的方法。
+
 ## 6. 每图真实性核验
 
 每张图逐一核对：
@@ -234,7 +237,7 @@ DOI/期刊页
 
 ## 11. 元数据
 
-最少字段见 `templates/project/04_real_assets/source_metadata.csv`。
+最少字段见 `templates/project/04_real_assets/source_metadata.csv`；论文/平台级访问过程见 `templates/project/04_real_assets/access_log.csv`。
 
 `verification_status` 采用以下值：
 
@@ -263,4 +266,3 @@ DOI/期刊页
 - 不确定能否再分发时，只提交元数据与下载说明，不提交图片文件；
 - 公开仓库中的示例使用公共领域、CC许可或合成素材；
 - 引用不等于取得版权许可。
-
