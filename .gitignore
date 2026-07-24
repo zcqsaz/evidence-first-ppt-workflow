@@ -1,0 +1,32 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+.local-validation/
+.wheel-smoke/
+build/
+dist/
+*.egg-info/
+.env
+.env.*
+~$*
+*.tmp
+*.bak
+*.log
+.DS_Store
+Thumbs.db
+
+# Real project inputs and generated deliveries are private by default.
+projects/*/00_input/original/
+projects/*/00_input/supplementary/
+projects/*/06_visual_generation/real_sources/**/*.pdf
+projects/*/06_visual_generation/real_sources/**/*.tif
+projects/*/06_visual_generation/real_sources/**/*.tiff
+projects/*/08_project_qa/renders*/
+projects/*/09_delivery/*.pptx
+projects/*/09_delivery/*.pdf
+
+# Keep directory documentation and metadata.
+!projects/**/README.md
+!projects/**/source_metadata.csv

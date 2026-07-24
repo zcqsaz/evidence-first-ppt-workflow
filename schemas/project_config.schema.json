@@ -1,0 +1,110 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://evidence-first-ppt-workflow.local/schemas/project_config.schema.json",
+  "title": "Evidence-First PPT project configuration",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "workflow_version", "project", "scope", "presentation", "qa"],
+  "properties": {
+    "$schema": {"type": "string"},
+    "schema_version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "workflow_version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "project": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name", "type", "language"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "name": {"type": "string"},
+        "type": {"enum": ["course", "proposal", "defense", "project-report", "paper-talk", "other"]},
+        "language": {"type": "string", "minLength": 2}
+      }
+    },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["allowed_files", "forbidden_files"],
+      "properties": {
+        "allowed_files": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "forbidden_files": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}
+      }
+    },
+    "presentation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["aspect_ratio", "allowed_fonts", "cover_slides", "directory_slides", "transition_slides", "page_number", "banned_phrases"],
+      "properties": {
+        "expected_slide_count": {"type": ["integer", "null"], "minimum": 1},
+        "aspect_ratio": {"enum": ["16:9", "4:3", "custom"]},
+        "allowed_fonts": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+        "cover_slides": {"$ref": "#/$defs/slideNumbers"},
+        "directory_slides": {"$ref": "#/$defs/slideNumbers"},
+        "transition_slides": {"$ref": "#/$defs/slideNumbers"},
+        "page_number": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["required", "start_slide", "center_tolerance_inches"],
+          "properties": {
+            "required": {"type": "boolean"},
+            "start_slide": {"type": "integer", "minimum": 1},
+            "center_tolerance_inches": {"type": "number", "minimum": 0, "maximum": 1},
+            "bottom_zone_fraction": {"type": "number", "exclusiveMinimum": 0, "maximum": 0.6, "default": 0.35}
+          }
+        },
+        "banned_phrases": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true}
+      }
+    },
+    "qa": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "fail_on_out_of_bounds",
+        "fail_on_text_overlap",
+        "fail_on_nonzero_picture_crop",
+        "fail_on_duplicate_evidence_media",
+        "fail_on_banned_phrase",
+        "fail_on_explicit_disallowed_font",
+        "ignore_template_media_repeated_on_fraction",
+        "text_overlap_smaller_area_fraction",
+        "minimum_body_characters_without_visual",
+        "low_density_exempt_slides",
+        "crop_exempt_slides",
+        "overlap_exempt_slides"
+      ],
+      "properties": {
+        "fail_on_out_of_bounds": {"type": "boolean"},
+        "fail_on_text_overlap": {"type": "boolean"},
+        "fail_on_nonzero_picture_crop": {"type": "boolean"},
+        "fail_on_duplicate_evidence_media": {"type": "boolean"},
+        "fail_on_banned_phrase": {"type": "boolean"},
+        "fail_on_explicit_disallowed_font": {"type": "boolean"},
+        "fail_on_unmapped_evidence_media": {"type": "boolean", "default": false},
+        "fail_on_low_density": {"type": "boolean", "default": false},
+        "ignore_template_media_repeated_on_fraction": {"type": "number", "minimum": 0, "maximum": 1},
+        "text_overlap_smaller_area_fraction": {"type": "number", "exclusiveMinimum": 0, "maximum": 1},
+        "bounds_tolerance_inches": {"type": "number", "minimum": 0, "maximum": 0.25, "default": 0.01},
+        "crop_tolerance": {"type": "number", "minimum": 0, "maximum": 0.01, "default": 0.000001},
+        "minimum_body_characters_without_visual": {"type": "integer", "minimum": 0},
+        "minimum_body_characters_with_visual": {"type": "integer", "minimum": 0, "default": 80},
+        "minimum_substantive_units": {"type": "integer", "minimum": 0, "default": 4},
+        "low_density_exempt_slides": {"$ref": "#/$defs/slideNumbers"},
+        "crop_exempt_slides": {"$ref": "#/$defs/slideNumbers"},
+        "overlap_exempt_slides": {"$ref": "#/$defs/slideNumbers"},
+        "out_of_bounds_exempt_slides": {"$ref": "#/$defs/slideNumbers"},
+        "duplicate_media_exempt_sha256": {
+          "type": "array",
+          "items": {"type": "string", "pattern": "^[A-Fa-f0-9]{64}$"},
+          "uniqueItems": true,
+          "default": []
+        }
+      }
+    }
+  },
+  "$defs": {
+    "slideNumbers": {
+      "type": "array",
+      "items": {"type": "integer", "minimum": 1},
+      "uniqueItems": true
+    }
+  }
+}

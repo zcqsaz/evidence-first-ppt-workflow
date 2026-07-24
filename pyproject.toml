@@ -1,0 +1,60 @@
+[project]
+name = "evidence-first-ppt-workflow"
+version = "1.0.0"
+description = "Evidence-first, reproducible workflow and QA tools for academic PowerPoint presentations"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [
+  { name = "Evidence-First PPT Workflow contributors" }
+]
+
+dependencies = [
+  "python-pptx>=1.0.2",
+  "Pillow>=10.0.0",
+  "requests>=2.31.0",
+  "matplotlib>=3.8.0",
+  "jsonschema>=4.21.0"
+]
+
+[project.urls]
+Homepage = "https://github.com/zcqsaz/evidence-first-ppt-workflow"
+Repository = "https://github.com/zcqsaz/evidence-first-ppt-workflow"
+Issues = "https://github.com/zcqsaz/evidence-first-ppt-workflow/issues"
+
+[project.scripts]
+efppt-init = "scripts.init_project:main"
+efppt-validate-pptx = "scripts.validate_pptx:main"
+efppt-validate-sources = "scripts.validate_sources:main"
+efppt-render-formula = "scripts.render_formula:main"
+efppt-contact-sheet = "scripts.make_contact_sheet:main"
+efppt-compare-files = "scripts.compare_files:main"
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0.0"]
+
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["scripts*"]
+
+[tool.setuptools.data-files]
+"share/evidence-first-ppt-workflow/schemas" = ["schemas/*.json"]
+"share/evidence-first-ppt-workflow/templates/project" = ["templates/project/*.md", "templates/project/*.json"]
+"share/evidence-first-ppt-workflow/templates/project/00_input" = ["templates/project/00_input/*.md"]
+"share/evidence-first-ppt-workflow/templates/project/01_extract" = ["templates/project/01_extract/*.md", "templates/project/01_extract/*.csv"]
+"share/evidence-first-ppt-workflow/templates/project/02_storyline" = ["templates/project/02_storyline/*.md"]
+"share/evidence-first-ppt-workflow/templates/project/03_slide_spec" = ["templates/project/03_slide_spec/*.md"]
+"share/evidence-first-ppt-workflow/templates/project/03_slide_spec/slides" = ["templates/project/03_slide_spec/slides/*.md"]
+"share/evidence-first-ppt-workflow/templates/project/04_real_assets" = ["templates/project/04_real_assets/*.md", "templates/project/04_real_assets/*.csv"]
+"share/evidence-first-ppt-workflow/templates/project/05_visual_system" = ["templates/project/05_visual_system/*.md"]
+"share/evidence-first-ppt-workflow/templates/project/06_build" = ["templates/project/06_build/*.json"]
+"share/evidence-first-ppt-workflow/templates/project/07_qa" = ["templates/project/07_qa/*.md"]
+"share/evidence-first-ppt-workflow/templates/project/08_delivery" = ["templates/project/08_delivery/*.md"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]

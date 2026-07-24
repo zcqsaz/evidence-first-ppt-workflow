@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://evidence-first-ppt-workflow.local/schemas/validation_report.schema.json",
+  "title": "Evidence-First validation report",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["tool", "tool_version", "generated_at", "target", "status", "summary", "issues"],
+  "properties": {
+    "tool": {"type": "string"},
+    "tool_version": {"type": "string"},
+    "generated_at": {"type": "string", "format": "date-time"},
+    "target": {"type": "string"},
+    "status": {"enum": ["pass", "fail"]},
+    "summary": {
+      "type": "object",
+      "required": ["errors", "warnings", "info"],
+      "properties": {
+        "errors": {"type": "integer", "minimum": 0},
+        "warnings": {"type": "integer", "minimum": 0},
+        "info": {"type": "integer", "minimum": 0}
+      }
+    },
+    "issues": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["severity", "code", "message"],
+        "properties": {
+          "severity": {"enum": ["error", "warning", "info"]},
+          "code": {"type": "string", "minLength": 1},
+          "message": {"type": "string", "minLength": 1},
+          "slide": {"type": "integer", "minimum": 1},
+          "shape": {"type": "string"},
+          "details": {"type": "object"}
+        }
+      }
+    }
+  }
+}

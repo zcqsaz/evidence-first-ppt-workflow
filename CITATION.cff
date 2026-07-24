@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this workflow in research, teaching, or presentation production, please cite the repository."
+title: "Evidence-First PPT Workflow"
+version: 1.0.0
+date-released: 2026-07-23
+license: MIT
+authors:
+  - name: "Evidence-First PPT Workflow contributors"
+repository-code: "https://github.com/zcqsaz/evidence-first-ppt-workflow"
+abstract: "An evidence-first, reproducible workflow and QA toolkit for academic PowerPoint presentations."

@@ -1,0 +1,57 @@
+{
+  "$schema": "../../schemas/project_config.schema.json",
+  "schema_version": "1.0.0",
+  "workflow_version": "1.0.0",
+  "project": {
+    "id": "YYYY-NNN-short-name",
+    "name": "",
+    "type": "course",
+    "language": "zh-CN"
+  },
+  "scope": {
+    "allowed_files": [],
+    "forbidden_files": []
+  },
+  "presentation": {
+    "expected_slide_count": null,
+    "aspect_ratio": "16:9",
+    "allowed_fonts": ["Microsoft YaHei"],
+    "cover_slides": [1],
+    "directory_slides": [2],
+    "transition_slides": [],
+    "page_number": {
+      "required": true,
+      "start_slide": 2,
+      "center_tolerance_inches": 0.08
+    },
+    "banned_phrases": [
+      "阅读要点",
+      "课堂解读",
+      "课堂观察",
+      "理解要点",
+      "案例定位",
+      "课程示意",
+      "图示所支持",
+      "核心内容",
+      "制作说明",
+      "仅供 AI",
+      "模块一",
+      "模块二",
+      "模块三"
+    ]
+  },
+  "qa": {
+    "fail_on_out_of_bounds": true,
+    "fail_on_text_overlap": true,
+    "fail_on_nonzero_picture_crop": true,
+    "fail_on_duplicate_evidence_media": true,
+    "fail_on_banned_phrase": true,
+    "fail_on_explicit_disallowed_font": true,
+    "ignore_template_media_repeated_on_fraction": 0.8,
+    "text_overlap_smaller_area_fraction": 0.08,
+    "minimum_body_characters_without_visual": 180,
+    "low_density_exempt_slides": [1, 2],
+    "crop_exempt_slides": [],
+    "overlap_exempt_slides": []
+  }
+}
